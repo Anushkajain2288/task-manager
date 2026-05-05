@@ -21,7 +21,7 @@ function getUserRole() {
     const payload = JSON.parse(atob(token.split(".")[1]));
     return payload.role;
 }
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://task-manager-production-06ba.up.railway.app";
 
 // ================= LOGIN =================
 async function login() {
@@ -29,7 +29,7 @@ async function login() {
     const password = document.getElementById("password").value;
 
     try {
-        const res = await fetch("http://localhost:5000/api/auth/login", {
+        const res = await fetch(`${BASE_URL}/api/auth/login`,  {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
