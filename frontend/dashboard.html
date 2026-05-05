@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <h2>📋 Task Dashboard</h2>
+
+        <!-- ✅ CREATE TASK SECTION -->
+        <div class="container" id="createSection" style="margin-bottom: 20px;">
+            <h3>Add New Task</h3>
+
+            <input type="text" id="title" placeholder="Enter Task Title">
+            <input type="text" id="description" placeholder="Enter Task Description">
+            <input type="date" id="dueDate">
+
+            <select id="assignedTo">
+    <option value="">Assign User</option>
+</select>
+
+            <button onclick="createTask()">Add Task</button>
+        </div>
+
+        <!-- ✅ TASK LIST -->
+        <div id="taskList"></div>
+
+        <!-- ✅ LOGOUT -->
+        <button onclick="logout()" style="margin-top:20px; background:red;">
+            Logout
+        </button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // 🔐 Protect page
+        if (!localStorage.getItem("token")) {
+            alert("Please login first");
+            window.location.href = "index.html";
+        }
+
+        // 🚪 Logout
+        function logout() {
+            localStorage.removeItem("token");
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
